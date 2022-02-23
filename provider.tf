@@ -10,6 +10,7 @@ provider "aws" {
 }
 
 provider "azurerm" {
+  skip_provider_registration = "true"
   features {}
   subscription_id = var.azure_subscription_id
   client_id       = var.azure_client_id
