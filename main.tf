@@ -70,17 +70,17 @@ module "azure_spoke_2" {
 
   # Multi-Cloud Segmentation
 resource "aviatrix_segmentation_security_domain" "segmentation_security_domain_1" {
-    domain_name = "BU2"
+    domain_name = "Domain1"
 }
 
 resource "aviatrix_segmentation_security_domain" "segmentation_security_domain_2" {
-    domain_name = "BU1"
+    domain_name = "Domain2"
 }
  
   
  resource "aviatrix_segmentation_security_domain_connection_policy" "segmentation_security_domain_connection_policy_1" {
-  domain_name_1 = "BU1"
-  domain_name_2 = "BU2"
+  domain_name_1 = "Domain1"
+  domain_name_2 = "Domain2"
   depends_on    = [aviatrix_segmentation_security_domain.segmentation_security_domain_1, aviatrix_segmentation_security_domain.segmentation_security_domain_2]
 
 }
