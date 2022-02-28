@@ -48,7 +48,7 @@ module "aws_spoke_1" {
   ha_gw           = var.ha_enabled
   prefix          = false
   suffix          = false
-#  security_domain = aviatrix_segmentation_security_domain.BU1.domain_name
+#  security_domain = aviatrix_segmentation_security_domain.segmentation_security_domain_2.domain_name
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
@@ -63,23 +63,18 @@ module "azure_spoke_2" {
   ha_gw           = var.ha_enabled
   prefix          = false
   suffix          = false
-#  security_domain = aviatrix_segmentation_security_domain.BU2.domain_name
+#  security_domain = aviatrix_segmentation_security_domain.segmentation_security_domain_1.domain_name
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
 
   # Multi-Cloud Segmentation
-resource "aviatrix_segmentation_security_domain" "BU1" {
-  domain_name = "BU1"
-  depends_on = [
-    module.aws_transit_1
-  ]
+resource "aviatrix_segmentation_security_domain" "segmentation_security_domain_1" {
+    domain_name = "BU2"
 }
-resource "aviatrix_segmentation_security_domain" "BU2" {
-  domain_name = "BU2"
-  depends_on = [
-    module.aws_transit_1
-  ]
+
+resource "aviatrix_segmentation_security_domain" "segmentation_security_domain_2" {
+    domain_name = "BU1"
 }
  
   
