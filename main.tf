@@ -81,9 +81,9 @@ resource "aviatrix_segmentation_security_domain" "BU2" {
     module.aws_transit_1
   ]
 }
+  */
   
  resource "aviatrix_segmentation_security_domain_connection_policy" "BU1_BU2" {
   domain_name_1 = "BU1"
   domain_name_2 = "BU2"
 }
-*/
